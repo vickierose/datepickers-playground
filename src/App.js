@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import './main.scss';
 
 import Navigation from './Navigation';
 import CurrentDatepicker from './React-dates';

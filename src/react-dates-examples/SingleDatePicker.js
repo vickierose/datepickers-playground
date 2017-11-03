@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 class DatePicker extends Component {
   constructor (props) {
@@ -15,7 +16,6 @@ class DatePicker extends Component {
   }
 
   changeDateHandler (date) {
-    console.log('date', date)
     this.setState({date})
   }
 
