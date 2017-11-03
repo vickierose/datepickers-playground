@@ -14,9 +14,9 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="wrapper">
           <Navigation />
-          <div>
+          <div className="main">
             <Route exact path="/" component={CurrentDatepicker} />
             <Route path="/react-day-picker" component={DayPicker} />
             <Route path="/@opuscapita-react-dates" component={ReactDatesDatepicker} />

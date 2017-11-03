@@ -27,7 +27,7 @@ class RangePicker extends Component {
 
   render () {
     return (
-      <div>
+      <div className="picker-block">
         <h2>Range Selector</h2>
         <DateRangePicker
           startDate={this.state.startDate}

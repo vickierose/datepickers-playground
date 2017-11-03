@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar, .main {
+  padding: 15px;
+}
+.sidebar {
+  width: 20%;
+   
+  li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px 0;
+  }
+}
+.main {
+  width: 80%;
+
+  h1, h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px 0;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.picker-block {
+  height: 400px;
+}

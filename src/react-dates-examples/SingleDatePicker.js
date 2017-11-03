@@ -25,7 +25,7 @@ class DatePicker extends Component {
 
   render () {
     return (
-      <div>
+      <div className="picker-block">
         <h2>Single Date Picker</h2>
         <SingleDatePicker 
           date={this.state.date}
