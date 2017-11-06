@@ -1,0 +1,141 @@
+@import '../styles/variables';
+
+// .rangedatepicker {
+  .DateRangePicker {
+    margin-right: 20px;
+    font-family: $fontBase;
+  }
+
+  .DateRangePicker__picker {
+    top: 100%;
+    margin-top: 10px;
+    z-index: 1100;
+    left: 0;
+  }
+
+  .DateRangePickerInput {
+    border-radius: 5px;
+
+    .DateInput {
+      padding: 0;
+      width: auto;
+      border-radius: 5px;
+
+      &__display-text {
+        padding: 3px 8px;
+        font-size: $md;
+
+        &--focused {
+          background: map-get($color, secondary);
+          color: map-get($color, textSecondary);
+        }
+      }
+
+      &__input {
+        cursor: pointer;
+      }
+    }
+
+    &__calendar-icon {
+      padding: 0 0 2px;
+    }
+  }
+
+  .CalendarDay {
+    &__button {
+      font-family: $fontBase;
+      font-size: $sm;
+    }
+
+    &--selected {
+      &-span {
+        background: map-get($color, secondary);
+        border: 1px double map-get($color, secondaryDark);
+      }
+
+      &-start,
+      &-end {
+        background: map-get($color, secondary);
+        border: 1px double map-get($color, secondaryDark);
+      }
+    }
+
+    &:hover {
+      background: map-get($color, secondaryLight);
+      border: 1px double map-get($color, secondaryDark);
+    }
+
+    &--hovered {
+      &-span {
+        background: map-get($color, secondaryLight);
+        border: 1px double map-get($color, secondary);
+        color: map-get($color, textSecondary);
+        opacity: .3;
+      }
+    }
+
+    &--after-hovered-start {
+      background: map-get($color, secondaryLight);
+      border: 1px double map-get($color, secondary);
+      color: map-get($color, textSecondary);
+      opacity: .3;
+    }
+  }
+// }
+
+.panel--small {
+
+  .date-range-picker__bottom {
+    margin-bottom: 10px;
+
+    .DateRangePicker__picker {
+      bottom: 45px;
+      top: auto;
+    }
+
+    .DateInput--with-caret {
+      &::after,
+      &::before {
+        border: 10px solid transparent;
+        border-bottom: 0;
+        z-index: 1101;
+      }
+
+      &::after {
+        border-top-color: #fff;
+        top: auto;
+        bottom: 35px;
+      }
+
+      &::before {
+        border-top-color: rgba(0, 0, 0, 0.1);
+        top: auto;
+        bottom: 34px;
+      }
+    }
+  }
+}
+
+.panel__modal {
+  .date-range-picker__bottom {
+
+    .DateRangePicker__picker {
+      top: 45px;
+    }
+
+    .DateInput--with-caret {
+      &::after,
+      &::before {
+        z-index: 1101;
+      }
+
+      &::after {
+        top: 45px;
+      }
+
+      &::before {
+        top: 44px;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+$fontBase: Verdana, Geneva, Tahoma, sans-serif;
+
+$lineHeight: 1.33;
+
+/*---  Colors  ---*/
+$color: (
+  'primary': #d4d6d7,
+  'primaryDark': #273239,
+  'primaryLight': #9fa7a5,
+
+  'secondary': #cfb07e,
+  'secondaryDark': #8e7a44,
+  'secondaryLight': #a29060,
+
+  'positive': #7ccc2a,
+  'negative': #f30421,
+  'infoColor': #31ccec,
+  'warningColor': #f7f7f7,
+
+  'textPrimary': #000000,
+  'textDarkPrimary': #333333,
+  'textLightPrimary': #9c9c9c,
+
+  'textSecondary': #ffffff,
+  'textDarkSecondary': #f1f1f1,
+  'textLightSecondary': #f5f5f5,
+
+  'pageBackground': #cccccc,
+  'headerBackground': #273239,
+
+  'heatmap-no-data': #927826
+);
+
+
+/*---  Breakpoints  ---*/
+
+$breakpoints: (
+  'tablet': 768px,
+  'computer': 992px,
+  'desktop': 1024px,
+  'largeMonitor': 1400px,
+  'widescreenMonitor': 1920px
+);
+
+/*--- Font sizes ---*/
+$sm: 12px;
+$md: 14px;
+$lg: 16px;
+
+@mixin breakpoint($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}

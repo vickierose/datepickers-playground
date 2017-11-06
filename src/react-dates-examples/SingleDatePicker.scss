@@ -1,0 +1,109 @@
+@import '../styles/variables.scss';
+
+.datepicker {
+  .SingleDatePickerInput {
+    border: none;
+    color: map-get($color, textSecondary);
+    fill:map-get($color, textSecondary);
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    background: #3d474d;
+
+    &__calendar-icon {
+      margin: 0;
+      padding: 0;
+      margin-left: 16px;
+      line-height: 1;
+
+      svg {
+        fill: map-get($color, textSecondary);
+      }
+    }
+  }
+
+  .DateInput {
+    border: none;
+    background: transparent;
+    padding: 0;
+    width: auto;
+    min-width: 120px;
+    font-size: $md;
+    padding: 6px 12px;
+    cursor: pointer;
+
+    &__input {
+      cursor: pointer;
+      padding: 0;
+    }
+
+    &__display-text {
+      color: map-get($color, textSecondary);
+      padding: 0;
+      line-height: 1.42857; // copy from bootstrap
+      text-align: center;
+
+      &--focused {
+        background: map-get($color, secondary);
+        color: map-get($color, textSecondary);
+      }
+    }
+
+    &--with-caret::before,
+    &--with-caret::after {
+      top: initial;
+      bottom: -10px;
+      left: 50%;
+      margin-left: -10px;
+      z-index: 1101;
+    }
+
+    &--with-caret::after {
+      bottom: -11px;
+    }
+  }
+
+  .SingleDatePicker__picker {
+    top: 100%;
+    margin-top: 10px;
+    z-index: 1100;
+    left: 0;
+
+    @include breakpoint(tablet) {
+      left: auto;
+    }
+
+    .CalendarDay {
+      &__button {
+        font-family: $fontBase;
+        font-size: $sm;
+      }
+
+      &--selected {
+        background: map-get($color, secondary);
+        border: 1px double map-get($color, secondaryDark);
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+
+    .SingleDatePickerInput {
+      &__calendar-icon {
+        cursor: not-allowed;
+      }
+    }
+
+    .DateInput {
+
+      &__input {
+        cursor: not-allowed;
+      }
+
+      &__display-text {
+        color: transparent;
+        user-select: none;
+      }
+    }
+  }
+}

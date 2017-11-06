@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
 import moment from 'moment';
-import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import './RangePicker.scss';
 
 class RangePicker extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      startDate: moment().add(-7),
+      startDate: moment().add(-7, 'days'),
       endDate: moment(),
       focusedInput: null
     }
 
     this.datesChangeHandler = this.datesChangeHandler.bind(this);
     this.focusChangeHandler = this.focusChangeHandler.bind(this);
+    this.isOutsideRange = this.isOutsideRange.bind(this);
   }
 
   datesChangeHandler ({startDate, endDate}) {
@@ -23,6 +24,10 @@ class RangePicker extends Component {
 
   focusChangeHandler (focusedInput) {
     this.setState({focusedInput})
+  }
+
+  isOutsideRange () {
+    return false;
   }
 
   render () {
@@ -34,7 +39,10 @@ class RangePicker extends Component {
           endDate={this.state.endDate}
           focusedInput={this.state.focusedInput}
           onDatesChange={this.datesChangeHandler}
-          onFocusChange={this.focusChangeHandler} />
+          onFocusChange={this.focusChangeHandler}
+          isOutsideRange={this.isOutsideRange}
+          showDefaultInputIcon
+          hideKeyboardShortcutsPanel />
       </div>
     )
   }
