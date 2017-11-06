@@ -5,7 +5,6 @@ import './main.scss';
 import Navigation from './Navigation';
 import CurrentDatepicker from './React-dates';
 import DayPicker from './React-day-picker';
-import ReactDatesDatepicker from './React-dates-opuscapita';
 
 export default class App extends Component {
   constructor(props){
