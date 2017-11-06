@@ -5,6 +5,7 @@
     border: none;
     color: map-get($color, textSecondary);
     fill:map-get($color, textSecondary);
+    font-family: $fontBase;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 4px;
     background: #3d474d;

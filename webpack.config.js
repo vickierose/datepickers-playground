@@ -14,7 +14,10 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'src'),
-    port: 4200
+    port: 4200,
+    historyApiFallback: {
+      index: '/index.html'
+    }
   },
   module: {
     loaders: [

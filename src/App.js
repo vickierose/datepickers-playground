@@ -15,11 +15,10 @@ export default class App extends Component {
     return (
       <Router>
         <div className="wrapper">
-          <Navigation />
+          {/* <Navigation /> */}
           <div className="main">
             <Route exact path="/" component={CurrentDatepicker} />
-            <Route path="/react-day-picker" component={DayPicker} />
-            <Route path="/@opuscapita-react-dates" component={ReactDatesDatepicker} />
+            {/* <Route path="/react-day-picker" component={DayPicker} />*/}
           </div>
         </div>
       </Router>
