@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import moment from 'moment';
+import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
-import './SingleDatePicker.scss';
+import './SingleDatePicker-v15.scss';
 
 function isBeforeDay (a, b) {
   if (!moment.isMoment(a) || !moment.isMoment(b)) return false;
@@ -33,9 +34,12 @@ class DatePicker extends Component {
       date: moment().add(-1, 'days'),
       focused: false
     };
+    this.preventClose = false;
     this.changeDateHandler = this.changeDateHandler.bind(this);
     this.focusChangeHandler = this.focusChangeHandler.bind(this);
     this.isOutsideRange = this.isOutsideRange.bind(this);
+    this.onClick = this.onClick.bind(this);
+    // this.onKeyDown = this.onKeyDown.bind(this);
   }
 
   changeDateHandler (date) {
@@ -43,6 +47,12 @@ class DatePicker extends Component {
   }
 
   focusChangeHandler ({focused}) {
+    const prevFocused = this.state.focused;
+    
+    if (prevFocused !== focused) {
+      this.preventClose = true;
+    };
+
     this.setState({focused})
   }
 
@@ -50,11 +60,29 @@ class DatePicker extends Component {
     return isInclusivelyAfterDay(day, moment());
   }
 
+  onClick () {
+    if (this.preventClose) {
+      this.preventClose = false;
+    } else {
+      this.focusChangeHandler({focused: false});
+    }
+  }
+
+  // onKeyDown (e) {
+  //   const escCode = 27;
+  //   e.persist();
+  //   e.preventDefault();
+  //   if(e.keyCode === escCode){
+  //     this.onClick();
+  //     console.log(e.keyCode)
+  //   }
+  // }
+
   render () {
     return (
       <div className="picker-block">
         <h2>Single Date Picker</h2>
-        <div className='datepicker'>
+        <div className='datepicker' onClick={this.onClick} >
           <SingleDatePicker 
             date={this.state.date}
             onDateChange={this.changeDateHandler}

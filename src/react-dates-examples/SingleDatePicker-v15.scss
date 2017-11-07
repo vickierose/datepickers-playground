@@ -1,0 +1,109 @@
+@import '../styles/variables.scss';
+
+.datepicker {
+  .SingleDatePickerInput {
+    border: none;
+    color: map-get($color, textSecondary);
+    fill:map-get($color, textSecondary);
+    font-family: $fontBase;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    background: #3d474d;
+
+    &_calendarIcon {
+      margin: 0;
+      padding: 0;
+      margin-left: 16px;
+      line-height: 1;
+
+      svg {
+        fill: map-get($color, textSecondary);
+      }
+    }
+  }
+
+  .DateInput {
+    border: none;
+    background: transparent;
+    padding: 0;
+    width: auto;
+    min-width: 120px;
+    font-size: $md;
+    padding: 6px 12px;
+    cursor: pointer;
+
+    &_input {
+      cursor: pointer;
+      padding: 0;
+      color: map-get($color, textSecondary);
+      background: transparent;
+      line-height: 1.42857; // copy from bootstrap
+      text-align: center;
+      border: none;
+
+      &__focused {
+        background: map-get($color, secondary);
+        color: map-get($color, textSecondary);
+        border: none;
+      }
+    }
+
+    &__withCaret::before,
+    &__withCaret::after {
+      top: initial;
+      bottom: -10px;
+      left: 50%;
+      margin-left: -10px;
+      z-index: 1101;
+    }
+
+    &__withCaret::after {
+      bottom: -11px;
+    }
+  }
+
+  .SingleDatePicker_picker {
+    top: 100%;
+    margin-top: 10px;
+    z-index: 1100;
+    left: 0;
+
+    @include breakpoint(tablet) {
+      left: auto;
+    }
+
+    .CalendarDay {
+      &_button {
+        font-family: $fontBase;
+        font-size: $sm;
+      }
+
+      &__selected {
+        background: map-get($color, secondary);
+        border: 1px double map-get($color, secondaryDark);
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+
+    .SingleDatePickerInput {
+      &__calendar-icon {
+        cursor: not-allowed;
+      }
+    }
+
+    .DateInput {
+
+      &__input {
+        cursor: not-allowed;
+      }
+
+      &__display-text {
+        color: transparent;
+        user-select: none;
+      }
+    }
+  }
+}
