@@ -1,6 +1,34 @@
 @import '../styles/variables.scss';
 
 .datepicker {
+  .year-controls {
+    position: absolute;
+    width: 318px;
+    left: -158px;
+    top: 61px;
+
+    .year-btn {
+      position: relative;
+      border-color: #e4e7e7;
+      border-radius: 3px;
+      height: 34px;
+      color: map-get($color, textLightPrimary);
+      z-index: 1100;
+
+      &:hover {
+        border-color: #c4c4c4;
+        color: map-get($color, textLightPrimary);
+        background-color: map-get($color, textSecondary);
+      }
+    }
+    .previous-year-btn {
+      left: 3px;
+    }
+    .next-year-btn {
+      left: 235px;
+    }
+  }
+
   .SingleDatePickerInput {
     border: none;
     color: map-get($color, textSecondary);
@@ -25,11 +53,10 @@
   .DateInput {
     border: none;
     background: transparent;
-    padding: 0;
-    width: auto;
-    min-width: 120px;
-    font-size: $md;
     padding: 6px 12px;
+    line-height: 17px;
+    width: 120px;
+    min-width: 120px;
     cursor: pointer;
 
     &_input {
@@ -37,9 +64,12 @@
       padding: 0;
       color: map-get($color, textSecondary);
       background: transparent;
+      font-size: $md;
+      padding: 0;
       line-height: 1.42857; // copy from bootstrap
       text-align: center;
       border: none;
+      border-radius: 4px;
 
       &__focused {
         background: map-get($color, secondary);
@@ -72,6 +102,15 @@
       left: auto;
     }
 
+    .DayPickerNavigation_leftButton__horizontal {
+      left: 50px;
+      z-index: 2000;
+    }
+
+    .DayPickerNavigation_rightButton__horizontal {
+      right: 50px;
+    }
+
     .CalendarDay {
       &_button {
         font-family: $fontBase;
@@ -85,22 +124,20 @@
     }
   }
 
-  &--disabled {
+  &__disabled {
     cursor: not-allowed;
 
     .SingleDatePickerInput {
-      &__calendar-icon {
+      &_calendarIcon {
         cursor: not-allowed;
       }
     }
 
     .DateInput {
-
-      &__input {
+      cursor: not-allowed;
+      
+      &_input {
         cursor: not-allowed;
-      }
-
-      &__display-text {
         color: transparent;
         user-select: none;
       }

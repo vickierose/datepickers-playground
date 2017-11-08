@@ -39,7 +39,7 @@ class DatePicker extends Component {
     this.focusChangeHandler = this.focusChangeHandler.bind(this);
     this.isOutsideRange = this.isOutsideRange.bind(this);
     this.onClick = this.onClick.bind(this);
-    // this.onKeyDown = this.onKeyDown.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
   }
 
   changeDateHandler (date) {
@@ -68,21 +68,20 @@ class DatePicker extends Component {
     }
   }
 
-  // onKeyDown (e) {
-  //   const escCode = 27;
-  //   e.persist();
-  //   e.preventDefault();
-  //   if(e.keyCode === escCode){
-  //     this.onClick();
-  //     console.log(e.keyCode)
-  //   }
-  // }
+  onKeyUp (e) {
+    const escCode = 27;
+    e.persist();
+    e.preventDefault();
+    if(e.keyCode === escCode){
+      this.onClick();
+    }
+  }
 
   render () {
     return (
       <div className="picker-block">
         <h2>Single Date Picker</h2>
-        <div className='datepicker' onClick={this.onClick} >
+        <div className='datepicker' onClick={this.onClick} onKeyUp={this.onKeyUp}>
           <SingleDatePicker 
             date={this.state.date}
             onDateChange={this.changeDateHandler}

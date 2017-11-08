@@ -20,6 +20,7 @@ class RangePicker extends Component {
     this.focusChangeHandler = this.focusChangeHandler.bind(this);
     this.isOutsideRange = this.isOutsideRange.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
   }
 
   datesChangeHandler ({startDate, endDate}) {
@@ -43,6 +44,15 @@ class RangePicker extends Component {
     }
   }
 
+  onKeyUp (e) {
+    const escCode = 27;
+    e.persist();
+    e.preventDefault();
+    if(e.keyCode === escCode){
+      this.onClick();
+    }
+  }
+
   isOutsideRange () {
     return false;
   }
@@ -51,7 +61,7 @@ class RangePicker extends Component {
     return (
       <div className="picker-block">
         <h2>Range Selector</h2>
-        <div className="rangepicker" onClick={this.onClick}>
+        <div className="rangepicker" onClick={this.onClick} onKeyUp={this.onKeyUp} >
           <DateRangePicker
             startDate={this.state.startDate}
             endDate={this.state.endDate}

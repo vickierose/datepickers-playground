@@ -1,6 +1,6 @@
 @import '../styles/variables';
 
-// .rangedatepicker {
+.rangepicker {
   .DateRangePicker {
     margin-right: 20px;
     font-family: $fontBase;
@@ -18,14 +18,16 @@
 
     .DateInput {
       padding: 0;
-      width: auto;
       border-radius: 5px;
+      width: 100px;
 
       &_input {
         cursor: pointer;
         padding: 3px 8px;
         font-size: $md;
         border: none;
+        border-radius: 5px;
+
         &__focused {
           border: none;
           background: map-get($color, secondary);
@@ -44,6 +46,13 @@
       &:hover {
         background: map-get($color, secondaryLight);
         border: 1px double map-get($color, secondaryDark);
+      }
+
+      &__after-hovered-start {
+        background: map-get($color, secondaryLight);
+        border: 1px double map-get($color, secondary);
+        color: map-get($color, textSecondary);
+        opacity: .3;
       }
     }
 
@@ -73,27 +82,20 @@
         opacity: .3;
       }
     }
-
-    &--after-hovered-start {
-      background: map-get($color, secondaryLight);
-      border: 1px double map-get($color, secondary);
-      color: map-get($color, textSecondary);
-      opacity: .3;
-    }
   }
-// }
+}
 
 .panel--small {
 
   .date-range-picker__bottom {
     margin-bottom: 10px;
 
-    .DateRangePicker__picker {
+    .DateRangePicker_picker {
       bottom: 45px;
       top: auto;
     }
 
-    .DateInput--with-caret {
+    .DateInput__withCaret {
       &::after,
       &::before {
         border: 10px solid transparent;
@@ -119,11 +121,11 @@
 .panel__modal {
   .date-range-picker__bottom {
 
-    .DateRangePicker__picker {
+    .DateRangePicker_picker {
       top: 45px;
     }
 
-    .DateInput--with-caret {
+    .DateInput__withCaret {
       &::after,
       &::before {
         z-index: 1101;
